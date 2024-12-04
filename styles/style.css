@@ -140,15 +140,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  block-size: 38px;
   background-color: transparent;
   border: 2px solid transparent;
-  block-size: 39px;
-  cursor: pointer;
-}
-.card__icon-button {
-  block-size: 38px;
-  border: 2px solid transparent;
   transition: border-color 0.3s ease;
+  cursor: pointer;
 }
 .card__icon-button:focus-visible {
   border-color: var(--hover-color);
