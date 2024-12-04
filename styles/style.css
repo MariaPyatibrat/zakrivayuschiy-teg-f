@@ -206,8 +206,8 @@
   inline-size: 1.5em;
   block-size: 1.5em;
   mix-blend-mode: difference;
-  color: var(--primary-white);
   z-index: 2;
+  color: var(--primary-white);
 }
 .modal {
   background-color: var(--primary-white);
