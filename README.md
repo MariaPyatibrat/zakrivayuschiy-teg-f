@@ -1,1 +1,1 @@
-https://github.com/MariaPyatibrat/zakrivayuschiy-teg-f
+https://mariapyatibrat.github.io/zakrivayuschiy-teg-f/
