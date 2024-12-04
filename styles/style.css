@@ -68,7 +68,7 @@
   block-size: 65px;
   margin-block-end: 20px;
   font-size: clamp(2rem, 5vw, 4.0625rem);
-  font-weight: var(--font-base-weight);
+  font-variation-settings: "wght" var(--font-base-weight);
   text-transform: uppercase;
   line-height: 1;
 }
@@ -84,7 +84,7 @@
 }
 .cards-list {
   display: grid;
-  gap: 49px;
+  gap: 50px;
 }
 .learning-card__title {
   display: flex;
