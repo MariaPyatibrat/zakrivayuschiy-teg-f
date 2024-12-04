@@ -1,5 +1,4 @@
 /* Здесь вы напишете основную часть стилей страницы.
-
 Будьте внимательны! Для корректной работы скриптов на этом сайте нужно, чтобы в HTML некоторые классы были названы особым образом:
 ✦ like-icon — для svg-иконки анимированного сердца
 ✦ card__like-button — для кнопки Like рядом с иконкой
@@ -7,10 +6,314 @@
 ✦ card__icon-button — для кнопки, оборачивающей иконку
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
-
 */
 
+/*Фильтры для карточек*/
+.filter-greyscale {
+  filter: grayscale(70%);
+}
+.filter-saturate {
+  filter: saturate(250%);
+}
+.filter-multiple {
+  filter: contrast(50%) hue-rotate(35deg) saturate(130%);
+}
+.filter-invert {
+  filter: invert(100%);
+}
+.filter-sepia {
+  filter: sepia(90%);
+}
+.filter-blur {
+  filter: blur(10px);
+}
+.filter-hue-rotate {
+  filter: hue-rotate(210deg);
+}
 .page {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: var(--font-base-family);
+  font-variation-settings: "wght" var(--font-base-weight);
+  color: var(--primary-black);
+  background-image:
+    var(--background-image-pattern),
+    var(--background-image-grid),
+    var(--background-image-fade);
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: top left;
+  background-repeat: no-repeat;
+}
+.page-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  block-size: clamp(200px, 56vh, 368px);
+  font-family: var(--font-accent-family);
+  margin: var(--margin-top-and-bottom-desktop);
+  border: 2px solid var(--primary-black);
+}
+.card {
+  inline-size: min(100vi, 700px);
+  margin-inline: auto;
+  background-color: var(--page-background-color);
+  border: 2px solid var(--primary-black);
+}
+.page-header__logo {
+  block-size: 65px;
+  margin-block-end: 20px;
+  font-size: clamp(2rem, 5vw, 4.0625rem);
+  font-weight: var(--font-base-weight);
+  text-transform: uppercase;
+  line-height: 1;
+}
+.page-header__tagline {
+  flex-wrap: nowrap;
+  text-transform: uppercase;
+  font-size: clamp(0.875rem, 0.226rem + 2.7692cqi, 1.4375rem);
+  block-size: 23px;
+}
+.main {
+  display: grid;
+  gap: 52px;
+}
+.cards-list {
+  display: grid;
+  gap: 49px;
+}
+.learning-card__title {
+  display: flex;
+  align-items: center;
+  max-block-size: 55px;
+  font-variation-settings: 'wght' var(--font-weight-heading, 700);
+  font-family: var(--font-base-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height);
+  border-bottom: 2px solid var(--primary-black);
+  padding: 4px 10px;
+}
+.image-container {
+  position: relative;
+  border-bottom: 2px solid var(--primary-black);
+}
+.card__image-overlay {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  z-index: 1;
+  opacity: 0.5;
+  color: var(--primary-black);
+  font-family: var(--font-accent-family);
+  font-size: 14px;
+  line-height: 14px;
+  text-shadow: 0 0 1px var(--primary-white);
+  mix-blend-mode: hard-light;
+}
+.learning-card__image {
+  display: block;
+  inline-size: 100%;
+  object-position: center;
+  object-fit: cover;
+  outline-offset: -2px;
+  aspect-ratio: 1 / 1;
+}
+.learning-card__content {
+  display: grid;
+  gap: 27px;
+  font-size: var(--font-size-base);
+  padding: 25px 25px 0 25px;
+}
+.learning-card__paragraph {
+  line-height: 21px;
+}
+.card__footer {
+  display: flex;
+  justify-content: end;
+  padding: 25.5px;
+}
+.card__icon-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid transparent;
+  block-size: 39px;
+  cursor: pointer;
+}
+.card__icon-button {
+  block-size: 38px;
+  border: 2px solid transparent;
+  transition: border-color 0.3s ease;
+}
+.card__icon-button:focus-visible {
+  border-color: var(--hover-color);
+  outline: none;
+}
+.button {
+  inline-size: 129px;
+  block-size: 38px;
+  background-color: var(--primary-white);
+  color: var(--primary-black);
+  border: 2px solid var(--primary-black);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.button__text {
+  font-family: var(--font-accent-family);
+  font-size: 14px;
+  line-height: 12.6px;
+  font-weight: var(--font-base-weight);
+  z-index: 2;
+  transition: color 0.3s ease;
+  position: relative;
+  color: var(--primary-white);
+  mix-blend-mode: difference;
+}
+.button:focus {
+  box-shadow: 2px 2px 0 var(--hover-color);
+  outline: none;
+}
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: var(--hover-color);
+  block-size: 100%;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-in-out;
+  transform-origin: left;
+  z-index: 1;
+}
+.button:hover::before {
+  transform: scaleX(1);
+}
+.wrapper {
+  display: flex;
+  justify-content: center;
+  margin-block-end: 103px;
+}
+.save-to-memory-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  inline-size: 339px;
+  block-size: 54px;
+}
+.save-to-memory-btn svg {
+  inline-size: 1.5em;
+  block-size: 1.5em;
+  mix-blend-mode: difference;
+  z-index: 2;
+  color: var(--primary-white);
+}
+.modal {
+  background-color: var(--primary-white);
+  max-width: 353px;
+  width: 100%;
+  position: fixed;
+  top: 159px;
+  left: 0;
+  padding: 30px;
+  border: 2px solid var(--primary-black);
+  z-index: 3;
+}
+.modal::backdrop {
+  opacity: 0.75;
+  background: var(--primary-black);
+}
+.modal__content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 19px;
+  margin-block-end: 30px;
+}
+.modal__floppy-icon {
+  inline-size: 2.5em;
+  block-size: 2.5em;
+  flex-shrink: 0;
+}
+.modal__title {
+  font-family: var(--font-accent-family);
+  text-transform: uppercase;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: left;
+}
+.button--secondary {
+  width: 100%;
+  font-family: var(--font-accent-family);
+  font-size: 14px;
+  text-transform: uppercase;
+  border: 2px solid var(--primary-black);
+}
+@media (max-width: 375px) {
+  .page-header {
+    inline-size: 100vw;
+    block-size: 327px;
+    margin: var(--margin-top-and-bottom-modile);
+  }
+  .page-header__logo {
+    inline-size: 343px;
+    block-size: 49px;
+    font-size: clamp(37px, 14vw, 49px);
+  }
+  .main {
+    gap: 48px;
+  }
+  .cards-list {
+    gap: 50px;
+  }
+  .learning-card__content {
+    padding: 29px 25px 0 25px;
+    gap: 28px;
+  }
+  .fit {
+    padding: 25px 30px 0 25px;
+  }
+  .card__footer {
+    padding: 25.2px;
+  }
+  .learning-card__title {
+    padding: 2px 10px;
+    line-height: 21.78px;
+  }
+  .save-to-memory-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 7.9px;
+    inline-size: 312px;
+    block-size: 84px;
+  }
+  .save-to-memory-btn svg {
+    inline-size: 28px;
+    block-size: 28px;
+  }
+  .modal {
+    padding: 30px 42px;
+    inline-size: 343px;
+    top: 0;
+  }
+  .button--secondary {
+    inline-size: 257px;
+  }
+}
+@supports (
+  (-webkit-text-stroke: 1px var(--primary-white)) or
+    (text-stroke: 1px var(--primary-white))
+) {
+  .card__image-overlay {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--primary-white);
+    text-stroke: 1px var(--primary-white);
+  }
 }
