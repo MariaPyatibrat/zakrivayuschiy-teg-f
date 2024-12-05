@@ -214,7 +214,7 @@
   max-width: 353px;
   width: 100%;
   position: fixed;
-  top: 159px;
+  top: 0;
   left: 0;
   padding: 30px;
   border: 2px solid var(--primary-black);
@@ -264,9 +264,6 @@
   .main {
     gap: 48px;
   }
-  .cards-list {
-    gap: 50px;
-  }
   .learning-card__content {
     padding: 29px 25px 0 25px;
     gap: 28px;
@@ -297,7 +294,6 @@
   .modal {
     padding: 30px 42px;
     inline-size: 343px;
-    top: 0;
   }
   .button--secondary {
     inline-size: 257px;
