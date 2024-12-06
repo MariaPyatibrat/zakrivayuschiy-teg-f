@@ -148,7 +148,7 @@
   transition: border-color 0.3s ease;
   cursor: pointer;
 }
-.like-icon .heart{
+.like-icon .heart {
   transform-origin: center;
 }
 .card__icon-button:focus-visible {
