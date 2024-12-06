@@ -134,6 +134,7 @@
 .card__footer {
   display: flex;
   justify-content: end;
+  gap: 5px;
   padding: 25.5px;
 }
 .card__icon-button {
@@ -143,8 +144,12 @@
   block-size: 38px;
   background-color: transparent;
   border: 2px solid transparent;
+  padding: 0;
   transition: border-color 0.3s ease;
   cursor: pointer;
+}
+.like-icon .heart{
+  transform-origin: center;
 }
 .card__icon-button:focus-visible {
   border-color: var(--hover-color);
@@ -262,7 +267,7 @@
     font-size: clamp(37px, 14vw, 49px);
   }
   .main {
-    gap: 48px;
+    gap: 51px;
   }
   .learning-card__content {
     padding: 29px 25px 0 25px;
